@@ -44,6 +44,8 @@ case "$1" in
             -e NO_AT_SPI=1 \
             -v "$GARMIN_ROOT":/root/garmin.connectiq.sdkmanager-root:Z \
             -v "$GARMIN_DATA":/root/.Garmin:Z \
+            -v $DEVELOPER_KEY:/root/developer_key:Z \
+            -v "$(pwd)":/home/sdk:Z \
             -v /tmp/.X11-unix:/tmp/.X11-unix \
             -w /root/ \
             $IMAGE_NAME /bin/bash
@@ -73,7 +75,7 @@ case "$1" in
     *)
         echo "Usage: ./connectiq.sh {sdk|run [device]|shell}"
         echo "  sdk           : Launches the SDK Manager"
-        echo "  run [device]  : Compiles and runs the project (default: fenix9pro47mm)"
+        echo "  run [device]  : Compiles and runs the project in the simulator (default: fenix9pro47mm)"
         echo "  shell         : Opens a terminal in the container"
         echo "  list-devices  : Lists all registered devices in XML format"
         echo "  compile       : Compiles the current project in .iq format for upload to Garmin"
