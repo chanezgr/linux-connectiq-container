@@ -1,0 +1,11 @@
+# Binaries and SDK downloads
+container/connectiq-sdk-manager-linux.zip
+
+# Secrets
+**/developer_key
+
+# Local IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+*.swp
